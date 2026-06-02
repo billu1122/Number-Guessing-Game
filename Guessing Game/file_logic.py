@@ -5,12 +5,15 @@ FILE_PATH = os.path.join(BASE_DIR, "game_data.txt")
 
 
 def file_load():
-    with open("Game_data.txt", "w") as file:
-        try:
-            with open(FILE_PATH, "r") as file:
-                lines = file.readlines()
-        except FileNotFoundError:
-            pass
+    try:
+        with open(FILE_PATH, "r") as file:
+            content = file.read()
+            if content:
+                score = int(content.split(":")[-1].strip())
+                return score
+    except (FileNotFoundError, ValueError):
+        pass
+    return 6
 
 def file_handling(high_score):
     with open(FILE_PATH, "w") as file:
