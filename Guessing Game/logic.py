@@ -27,7 +27,6 @@ def high_score_logic(attempt, high_score):
         print(f"Your High Score is: {high_score}")
         return high_score 
     else:
-        high_score=used_attempt
         print(f"Your High Score is still: {high_score}")
         return high_score
 
@@ -40,6 +39,7 @@ def attempt_logic(Computer_number,high_score):
         except ValueError:
             print("Invalid Input! Please Enter Integer value")
             print(f"Your Number of attempt left is: {4-attempt}") 
+            continue
             
 
         message = Guessing_Logic(Computer_number, user_number)
